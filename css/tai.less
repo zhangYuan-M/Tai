@@ -1,0 +1,314 @@
+* {
+	// touch-action: none;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+span,
+div,
+p,
+a,
+form,
+input {
+	margin: 0;
+	padding: 0;
+	font-family: helvetica;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	display: block;
+}
+
+a,
+input,
+button {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-appearance: none;
+	outline: none;
+	border: none;
+}
+
+img {
+	display: block;
+}
+
+html,
+body {
+	height: 100%; /* height；100% 填充视口的高度 height；100%  要设置块级元素 */
+	overflow: hidden; /* 禁止系统滚动条 */
+}
+
+// 1 rem 有多少个 位图像素
+@rem: 1080/16rem;
+@import './mixins/px1.less';
+// 导入组件的less文件
+@import './components/swiper/swiper.less';
+@import './components/dragNav/dragNav.less';
+@import './components/scroll/scroll.less';
+
+#wrap {
+	background-color: #eee;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+
+	.head {
+		position: absolute; /* 绝对定位模拟固定定位 出现滚动条 */
+		width: 16rem;
+		height: 2rem;
+		background: rgb(66, 66, 66);
+		.head-top {
+			height: 2rem;
+			.logo {
+				float: left;
+				margin: 18 / @rem;
+				a > img {
+					width: 240 / @rem;
+				}
+			}
+			.bread-nav {
+				float: left;
+				margin-top: 21 / @rem;
+				height: 90 / @rem;
+				width: 70 / @rem;
+				background: url(../img/menuBtn.png);
+				background-size: 70 / @rem 180 / @rem;
+				background-color: rgb(70, 67, 67);
+			}
+			.active {
+				background-position: bottom;
+			}
+			.btns-box {
+				position: relative;
+				left: 250 / @rem;
+				width: 475 / @rem;
+				height: 2rem;
+				text-align: center;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				a {
+					border-radius: 13 / @rem;
+					width: 120 / @rem;
+					background-color: yellowgreen;
+					margin-right: 10 / @rem;
+					font-size: 14px;
+					height: 1.3rem;
+					line-height: 1.3rem;
+					float: right;
+					color: white;
+				}
+				:nth-child(1) {
+					font-weight: bold;
+				}
+			}
+		}
+		.head-bottom {
+			transition: 0.5s all;
+			height: 103 / @rem;
+			padding: 16 / @rem;
+			background-color: rgb(51, 51, 51);
+			input[type='text'] {
+				float: left;
+				box-sizing: border-box;
+				height: 103 / @rem;
+				width: 829 / @rem;
+				background: #999999;
+				padding: 5 / @rem 10 / @rem;
+				border: 1px solid #5a5a5a;
+				font-size: 41 / @rem;
+				color: #333333;
+				border-radius: 15 / @rem 0 0 15 / @rem;
+				&::-webkit-input-placeholder {
+					color: #333333;
+				}
+				&:focus {
+					background: white;
+				}
+			}
+			input[type='submit'] {
+				float: right;
+				width: 203 / @rem;
+				height: 103 / @rem;
+				background: #414040;
+				color: #fff;
+				font-size: 41 / @rem;
+				border-radius: 0 15 / @rem 15 / @rem 0;
+			}
+		}
+		.head-mask {
+			.px1-top(rgb(255, 255, 255));
+			position: absolute;
+			z-index: 2;
+			top: 2rem;
+			width: 100%;
+			background-color: grey;
+			display: none;
+			& > ul > li {
+				width: 22.5%;
+				height: 135 / @rem;
+				font-size: 54 / @rem;
+				line-height: 135 / @rem;
+				float: left;
+				& > a {
+					color: white;
+				}
+			}
+		}
+	}
+	.content {
+		position: relative;
+		overflow: hidden;
+		overflow-y: auto;
+		overflow-x: hidden;
+		top: 0;
+		background-color: rgb(241, 241, 241);
+		.tab {
+			margin: 3 / @rem 15 / @rem;
+			background: white;
+			.tab-head {
+				.px1-bottom(rgb(150, 150, 150));
+				font-size: 48 / @rem;
+				height: 130 / @rem;
+				padding: 0 / @rem 10 / @rem;
+				h2 {
+					float: left;
+					height: 130 / @rem;
+					line-height: 130 / @rem;
+				}
+				span {
+					display: block;
+					height: 130 / @rem;
+					line-height: 130 / @rem;
+					float: right;
+				}
+			}
+			.tab-nav {
+				float: left;
+				margin-bottom: 10 / @rem;
+				a {
+					font-size: 45 / @rem;
+					margin: 0px 36 / @rem 0px 10 / @rem;
+					color: rgb(80, 80, 80);
+					float: left;
+				}
+				.active {
+					color: rgb(64, 126, 3);
+					// border-bottom: 8 / @rem solid rgb(105, 172, 5);
+				}
+				.greenFollow {
+					border-radius: 10 / @rem;
+					top: 0.2rem;
+					display: inline-block;
+					// transition: 1s transform,1s width;
+					transition: 0.5s transform, 0.5s height;
+					position: relative;
+					right: 11.9rem;
+					height: 10 / @rem;
+					width: 30px;
+					background-color: rgb(75, 145, 5);
+				}
+			}
+			.tab-content {
+				box-sizing: border-box;
+				clear: both;
+				margin-top: 90 / @rem;
+				height: 1200 / @rem;
+				width: 300%;
+				position: relative;
+				left: -98.5%;
+				& > ul {
+					width: 33%;
+
+					display: flex;
+					justify-content: space-around;
+					flex-wrap: wrap;
+				}
+				& > ul > li {
+					background-color: rgb(236, 236, 236);
+
+					a {
+						clear: both;
+						height: 350 / @rem;
+						width: 500 / @rem;
+						img {
+							width: 100%;
+						}
+						span {
+							display: block;
+							overflow: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+							color: #605e5e;
+							font-size: 40 / @rem;
+						}
+					}
+					.tab-discuss {
+						position: relative;
+						top: -10 / @rem;
+						width: 500 / @rem;
+						height: 50 / @rem;
+						line-height: 50 / @rem;
+						font-size: 35 / @rem;
+						display: flex;
+						justify-content: flex-start;
+						.left {
+							width: 30%;
+							color: rgb(82, 82, 82);
+							display: inline-block;
+							&::before {
+								content: '';
+								position: relative;
+								bottom: -3 / @rem;
+								background: url('../img/ice.png') no-repeat;
+								height: 0.5rem;
+								width: 0.6rem;
+								position: relative;
+								display: inline-block;
+							}
+						}
+						.right {
+							color: rgb(77, 77, 77);
+							width: 30%;
+							display: inline-block;
+							&::before {
+								content: '';
+								position: relative;
+								bottom: -3 / @rem;
+								background: url('../img/ice.png') no-repeat;
+								height: 0.5rem;
+								width: 0.6rem;
+								position: relative;
+								display: inline-block;
+							}
+						}
+					}
+				}
+				& > .loding {
+					// clear: both;
+					width: 33%;
+					float: left;
+					height: 1200 / @rem;
+					opacity: 0;
+					background: url('../img/loading.gif') no-repeat center;
+				}
+				.center {
+					float: left;
+				}
+			}
+		}
+	}
+}

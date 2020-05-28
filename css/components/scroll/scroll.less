@@ -1,0 +1,16 @@
+.scroll-warp {
+	height: calc(100vh - 3.9rem);
+	top: 3.9rem;
+	bottom: 0;
+	overflow: hidden;
+	position: relative;
+}
+._scroll-bar {
+	position: absolute;
+	width: 4px;
+	background-color: gray;
+	right: 0;
+	top: 0;
+	opacity: 0;
+	transition: 0.5s opacity, 0.5s height;
+}

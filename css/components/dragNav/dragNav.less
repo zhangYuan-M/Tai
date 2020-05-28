@@ -1,0 +1,42 @@
+@import '../../mixins/px1.less';
+// 1 rem 有多少个 位图像素
+@rem: 1080/16rem;
+
+.content-nav {
+	.px1-bottom(gray);
+	width: 100%;
+	height: 1.5rem;
+	background-color: rgba(221, 221, 221, 0.637);
+	.nav-list {
+		height: 100%;
+		line-height: 100%;
+		box-sizing: border-box;
+		padding: 11 / @rem 0 10 / @rem 0;
+		// 高级技巧
+		// 父级元素  white-space: nowrap;
+		// 子元素 display: inline-block;
+		white-space: nowrap;
+
+		// 为什么li撑不开ul 因为ul是块级元素拿到父亲的100%
+		float: left;
+
+		font-size: 50 / @rem;
+		& > li {
+			line-height: 80 / @rem;
+			text-align: center;
+			display: inline-block;
+			padding: 0 30 / @rem;
+			a {
+				color: rgb(88, 88, 88);
+			}
+		}
+		.active {
+			background-color: yellowgreen;
+			border-radius: 3px;
+			& > a {
+				font-weight: 590;
+				color: white;
+			}
+		}
+	}
+}

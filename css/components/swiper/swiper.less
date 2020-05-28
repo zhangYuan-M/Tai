@@ -1,0 +1,48 @@
+html,
+body,
+.wrap {
+	overflow: hidden;
+}
+.carousel-wrap {
+	position: relative;
+	.points-wrap {
+		width: 100%;
+		position: absolute;
+		bottom: 0px;
+		z-index: 3;
+		text-align: center;
+		& > span {
+			margin: 4px;
+			display: inline-block;
+			width: 9px;
+			height: 9px;
+			border-radius: 50%;
+			background-color: gray;
+		}
+		.active {
+			background-color: rgb(16, 185, 25);
+		}
+	}
+	.list {
+		list-style: none;
+		position: absolute;
+		& > a {
+			float: left;
+			& > li {
+				display: block;
+			}
+			img {
+				width: 100%;
+				display: block;
+			}
+		}
+	}
+}
+// .carousel-wrap>.list>a>li,
+// .carousel-wrap>.list>a>li>img {
+//   display: block;
+// }
+
+// .carousel-wrap>.list>a>li>img {
+//   width: 100%;
+// }
